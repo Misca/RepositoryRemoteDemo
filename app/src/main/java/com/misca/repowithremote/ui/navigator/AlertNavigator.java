@@ -2,11 +2,9 @@ package com.misca.repowithremote.ui.navigator;
 
 import android.content.Context;
 
+import com.misca.data.remote.exception.ApiException;
+import com.misca.data.remote.exception.ConnectivityException;
 import com.misca.repowithremote.R;
-
-import java.io.UnsupportedEncodingException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
@@ -26,7 +24,7 @@ public class AlertNavigator {
     }
 
     public void showErrorFor(@NonNull Throwable throwable) {
-        if (throwable instanceof SocketTimeoutException || throwable instanceof UnknownHostException || throwable instanceof UnsupportedEncodingException) {
+        if (throwable instanceof ConnectivityException || throwable instanceof ApiException) {
             showAlert(context.getString(R.string.network_error, throwable.getMessage()));
         }
     }
