@@ -1,7 +1,11 @@
 package com.misca.data.features.news.remote;
 
+import com.misca.data.features.news.model.Article;
+import com.misca.data.features.news.remote.mapper.NewsDtoToNewsMapper;
 import com.misca.data.features.news.remote.model.ArticleListDto;
 import com.misca.data.remote.NewsApi;
+
+import java.util.List;
 
 import io.reactivex.Single;
 import io.reactivex.annotations.NonNull;
@@ -22,9 +26,10 @@ public class NewsRemoteSource {
         this.newsApi = newsApi;
     }
 
-    public Single<ArticleListDto> getNewsArticles() {
+    public Single<List<Article>> getNewsArticles() {
         return newsApi.getNewsArticles(API_KEY, EN_LANGUAGE_FILTER)
-                .subscribeOn(Schedulers.io());
+                      .subscribeOn(Schedulers.io())
+                      .map(new NewsDtoToNewsMapper());
     }
 
 }

@@ -24,8 +24,7 @@ public class NewsRepositoryImpl implements NewsRepository {
     @Override
     @NonNull
     public Single<List<Article>> getNewsArticles() {
-        return remoteSource.getNewsArticles()
-                .map(new NewsDtoToNewsMapper());
+        return remoteSource.getNewsArticles();
     }
 
 }
