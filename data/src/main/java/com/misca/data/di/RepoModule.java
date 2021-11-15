@@ -14,7 +14,7 @@ public class RepoModule {
     @NonNull
     private Context context;
     @NonNull
-    private HttpClientFactory httpClientFactory;
+    private final HttpClientFactory httpClientFactory;
 
     public RepoModule(@NonNull Application application) {
         this.context = application.getApplicationContext();

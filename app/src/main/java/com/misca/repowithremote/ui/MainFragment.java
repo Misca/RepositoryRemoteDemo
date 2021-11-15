@@ -33,7 +33,7 @@ public class MainFragment extends Fragment {
 
         viewModel = new ViewModelProvider(this, new ViewModelFactory(requireActivity().getApplication())).get(MainViewModel.class);
         viewModel.error.observe(this, throwable -> alertNavigator.showErrorFor(throwable));
-        viewModel.openLink.observe(this, link -> openLink(link));
+        viewModel.openLink.observe(this, this::openLink);
     }
 
     @Nullable

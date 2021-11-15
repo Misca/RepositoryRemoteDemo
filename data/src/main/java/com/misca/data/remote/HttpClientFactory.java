@@ -33,12 +33,7 @@ public class HttpClientFactory {
     }
 
     private OkHttpClient getHttpClient() {
-        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-            @Override
-            public void log(@NotNull String message) {
-                Log.d(TAG, message);
-            }
-        });
+        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(message -> Log.d(TAG, message));
         logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         return new OkHttpClient.Builder()

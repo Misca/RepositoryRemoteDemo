@@ -18,7 +18,7 @@ public class NewsRemoteSource {
     @NonNull
     private final NewsApi newsApi;
 
-    public NewsRemoteSource(NewsApi newsApi) {
+    public NewsRemoteSource(@NonNull NewsApi newsApi) {
         this.newsApi = newsApi;
     }
 

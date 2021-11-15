@@ -20,6 +20,7 @@ public class MainViewModel extends AndroidViewModel {
 
     private final static String LINK = "https://newsapi.org/";
     private final NewsRepository repo;
+
     public final ObservableBoolean isLoading;
     public final ObservableField<String> resultText;
     public final SingleLiveEvent<Throwable> error;
